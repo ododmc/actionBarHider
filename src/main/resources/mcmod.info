@@ -1,0 +1,16 @@
+[
+{
+  "modid": "actionbarhider",
+  "name": "ActionBar Hider",
+  "description": "",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "https://github.com/ododmc/actionBarHider",
+  "updateUrl": "",
+  "authorList": ["Odod"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
