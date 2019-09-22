@@ -7,15 +7,25 @@ import net.minecraft.command.ICommandSender;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 
+import java.util.Collections;
+import java.util.List;
+
 public class CommandActionBarHider extends CommandBase {
+
+
     @Override
     public String getCommandName() {
         return "actionbarhider";
     }
 
     @Override
+    public List<String> getCommandAliases() {
+        return Collections.singletonList("abh");
+    }
+
+    @Override
     public String getCommandUsage(ICommandSender sender) {
-        return "/" + getCommandName() + " - toggles action bar being visible";
+        return "/" + getCommandName() + " - toggles the mod";
     }
 
     @Override
@@ -23,9 +33,11 @@ public class CommandActionBarHider extends CommandBase {
         return 0;
     }
 
+    private String prefix = EnumChatFormatting.RED + "[" + EnumChatFormatting.WHITE + "ActionBarHider" + EnumChatFormatting.RED + "] ";
+
     @Override
     public void processCommand(ICommandSender sender, String[] args) throws CommandException {
         ActionBarHider.toggled = !ActionBarHider.toggled;
-        Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("[ABH] Toggled " + (ActionBarHider.toggled ? "ON" : "OFF")));
+        Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText(prefix + "Toggled " + (ActionBarHider.toggled ? "\u00A7aON" : "\u00A7cOFF")));
     }
 }
