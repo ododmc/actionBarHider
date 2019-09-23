@@ -37,7 +37,34 @@ public class CommandActionBarHider extends CommandBase {
 
     @Override
     public void processCommand(ICommandSender sender, String[] args) throws CommandException {
+
+        if (args.length > 0) {
+            if (args[0].equalsIgnoreCase("toggle")) {
+                modToggle();
+            }
+
+            else if (args[0].equalsIgnoreCase("t")) {
+                modToggle();
+            }
+
+            else if (args[0].equalsIgnoreCase("message")) {
+                modMessage();
+            }
+
+            else if (args[0].equalsIgnoreCase("msg")) {
+                modMessage();
+            }
+        }
+
+    }
+
+    public void modToggle() {
         ActionBarHider.toggled = !ActionBarHider.toggled;
         Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText(prefix + "Toggled " + (ActionBarHider.toggled ? "\u00A7aON" : "\u00A7cOFF")));
+
+    }
+
+    private void modMessage() {
+
     }
 }
