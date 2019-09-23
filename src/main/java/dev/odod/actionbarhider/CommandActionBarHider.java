@@ -49,25 +49,27 @@ public class CommandActionBarHider extends CommandBase {
             else if (args[0].equalsIgnoreCase("message")) {
                 if (args.length < 2) {
                     Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("\u00A7c/abh msg <new message>"));
+                } else {
+                    StringBuilder sb = new StringBuilder();
+                    for (int i = 1; i < args.length; i++) {
+                        sb.append(args[i]).append(" ");
+                    }
+                    String msg = sb.toString().trim();
+                    modMessage(msg);
                 }
-                StringBuilder sb = new StringBuilder();
-                for (int i = 1; i < args.length; i++) {
-                    sb.append(args[i]).append(" ");
-                }
-                String msg = sb.toString().trim();
-                modMessage(msg);
             }
 
             else if (args[0].equalsIgnoreCase("msg")) {
                 if (args.length < 2) {
                     Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("\u00A7c/abh msg <new message>"));
+                } else {
+                    StringBuilder sb = new StringBuilder();
+                    for (int i = 1; i < args.length; i++) {
+                        sb.append(args[i]).append(" ");
+                    }
+                    String msg = sb.toString().trim();
+                    modMessage(msg);
                 }
-                StringBuilder sb = new StringBuilder();
-                for (int i = 1; i < args.length; i++) {
-                    sb.append(args[i]).append(" ");
-                }
-                String msg = sb.toString().trim();
-                modMessage(msg);
             }
 
             else if (args[0].equalsIgnoreCase("messagetoggle")) {
@@ -77,9 +79,15 @@ public class CommandActionBarHider extends CommandBase {
             else if (args[0].equalsIgnoreCase("msgtoggle")) {
                 modMessageToggle();
             }
+
+            else if (args[0].equalsIgnoreCase("msgt")) {
+                modMessageToggle();
+            }
+
+        } else {
+            Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText(getCommandUsage(sender)));
         }
 
-        Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText(getCommandUsage(sender)));
 
     }
 
@@ -90,10 +98,10 @@ public class CommandActionBarHider extends CommandBase {
     }
 
     private void modMessage(String msg) {
+
         if (msg.contains("&")) {
             msg = msg.replace("&", "§");
             ActionBarHider.message = msg;
-            Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText(prefix + "Custom message set to " + msg));
         } else ActionBarHider.message = msg;
         Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText(prefix + "Custom message set to " + msg));
 

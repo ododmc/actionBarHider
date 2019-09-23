@@ -2,6 +2,7 @@ package dev.odod.actionbarhider;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.common.MinecraftForge;
@@ -14,12 +15,12 @@ import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.io.IOException;
 
-@Mod(modid = "actionbarhider", version = "v1.0.0")
+@Mod(modid = "actionbarhider", version = "v1.1.0")
 public class ActionBarHider {
 
-    public static boolean toggled;
-    public static boolean messageEnabled;
-    public static String message;
+    public static boolean toggled = true;
+    public static boolean messageEnabled = true;
+    public static String message = "§c[§fActionBarHider§c] §aActive - §c/abh for commands";
 
     private File cfgFile = null;
 
@@ -40,7 +41,11 @@ public class ActionBarHider {
     public void onChatReceive(ClientChatReceivedEvent e) {
         if (toggled) {
             if (e.type == 2) {
-                e.setCanceled(true);
+                if (messageEnabled) {
+                    e.message = new ChatComponentText(message);
+                } else {
+                    e.setCanceled(true);
+                }
             }
         }
     }
