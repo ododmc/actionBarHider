@@ -11,7 +11,6 @@ import java.util.List;
 
 public class CommandActionBarHider extends CommandBase {
 
-
     @Override
     public String getCommandName() {
         return "actionbarhider";
@@ -94,7 +93,6 @@ public class CommandActionBarHider extends CommandBase {
     private void modToggle() {
         ActionBarHider.toggled = !ActionBarHider.toggled;
         Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText(prefix + "Mod toggled " + (ActionBarHider.toggled ? "\u00A7aON" : "\u00A7cOFF")));
-
     }
 
     private void modMessage(String msg) {
