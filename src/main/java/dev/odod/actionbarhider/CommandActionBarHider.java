@@ -98,7 +98,7 @@ public class CommandActionBarHider extends CommandBase {
     private void modMessage(String msg) {
 
         if (msg.contains("&")) {
-            msg = msg.replace("&", "§");
+            msg = msg.replace("&", "\u00a7");
             ActionBarHider.message = msg;
         } else ActionBarHider.message = msg;
         Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText(prefix + "Custom message set to " + msg));

@@ -20,7 +20,7 @@ public class ActionBarHider {
 
     public static boolean toggled = true;
     public static boolean messageEnabled = true;
-    public static String message = "§c[§fActionBarHider§c] §aActive - §c/abh for commands";
+    public static String message = "\u00a7c[\u00a7fActionBarHider\u00a7c] \u00a7aActive - \u00a7c/abh for commands";
 
     private File cfgFile = null;
 
