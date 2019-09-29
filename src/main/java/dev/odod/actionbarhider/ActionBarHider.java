@@ -2,6 +2,7 @@ package dev.odod.actionbarhider;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import dev.odod.actionbarhider.commands.CommandActionBarHider;
 import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;

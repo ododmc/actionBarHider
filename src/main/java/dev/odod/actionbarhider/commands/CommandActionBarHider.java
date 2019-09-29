@@ -1,5 +1,6 @@
-package dev.odod.actionbarhider;
+package dev.odod.actionbarhider.commands;
 
+import dev.odod.actionbarhider.ActionBarHider;
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
