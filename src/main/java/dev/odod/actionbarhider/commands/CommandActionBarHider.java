@@ -1,6 +1,7 @@
 package dev.odod.actionbarhider.commands;
 
 import dev.odod.actionbarhider.ActionBarHider;
+import dev.odod.actionbarhider.config.Settings;
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
@@ -11,6 +12,12 @@ import java.util.Collections;
 import java.util.List;
 
 public class CommandActionBarHider extends CommandBase {
+
+    private ActionBarHider mod;
+
+    public CommandActionBarHider(ActionBarHider mod) {
+        this.mod = mod;
+    }
 
     @Override
     public String getCommandName() {
@@ -92,22 +99,25 @@ public class CommandActionBarHider extends CommandBase {
     }
 
     private void modToggle() {
-        ActionBarHider.toggled = !ActionBarHider.toggled;
-        Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText(prefix + "Mod toggled " + (ActionBarHider.toggled ? "\u00A7aON" : "\u00A7cOFF")));
+        Settings.toggled = !Settings.toggled;
+        Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText(prefix + "Mod toggled " + (Settings.toggled ? "\u00A7aON" : "\u00A7cOFF")));
+        mod.getSettings().saveCfg();
     }
 
     private void modMessage(String msg) {
 
         if (msg.contains("&")) {
             msg = msg.replace("&", "\u00a7");
-            ActionBarHider.message = msg;
-        } else ActionBarHider.message = msg;
+            Settings.setMessage(msg);
+        } Settings.setMessage(msg);
         Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText(prefix + "Custom message set to " + msg));
+        mod.getSettings().saveCfg();
 
     }
 
     private void modMessageToggle() {
-        ActionBarHider.messageEnabled = !ActionBarHider.messageEnabled;
-        Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText(prefix + "Custom message toggled " + (ActionBarHider.messageEnabled ? "\u00A7aON" : "\u00A7cOFF")));
+        Settings.messageEnabled = !Settings.messageEnabled;
+        Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText(prefix + "Custom message toggled " + (Settings.messageEnabled ? "\u00A7aON" : "\u00A7cOFF")));
+        mod.getSettings().saveCfg();
     }
 }
