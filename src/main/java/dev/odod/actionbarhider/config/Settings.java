@@ -3,8 +3,10 @@ package dev.odod.actionbarhider.config;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.settings.KeyBinding;
 import org.apache.commons.io.FileUtils;
 
+import javax.swing.text.JTextComponent;
 import java.io.File;
 import java.io.IOException;
 
@@ -15,6 +17,8 @@ public class Settings {
     public static boolean toggled = true;
     public static boolean messageEnabled = true;
     private static String message = "\u00a7c[\u00a7fActionBarHider\u00a7c] \u00a7aActive - \u00a7c/abh for commands";
+
+    public KeyBinding hotkey = new KeyBinding("ActionBarHider", 49, "key.categories.ui");
 
     public static String getMessage() {
         return message;

@@ -98,7 +98,7 @@ public class CommandActionBarHider extends CommandBase {
 
     }
 
-    private void modToggle() {
+    public void modToggle() {
         Settings.toggled = !Settings.toggled;
         Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText(prefix + "Mod toggled " + (Settings.toggled ? "\u00A7aON" : "\u00A7cOFF")));
         mod.getSettings().saveCfg();
