@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
-@Mod(modid = "actionbarhider", version = "v1.1.0")
+@Mod(modid = "actionbarhider", version = "v1.2.0")
 public class ActionBarHider {
 
     private Settings settings = new Settings();
