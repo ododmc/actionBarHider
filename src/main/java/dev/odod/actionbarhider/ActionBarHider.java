@@ -43,6 +43,7 @@ public class ActionBarHider {
     public void tick(TickEvent.ClientTickEvent event) {
         if(settings.hotkey.isPressed()) {
             Settings.toggled = !Settings.toggled;
+            settings.saveCfg();
             Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("\u00A7c[\u00A7rActionBarHider\u00A7c] Mod toggled " + (Settings.toggled ? "\u00A7aON" : "\u00A7cOFF")));
         }
     }
